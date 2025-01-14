@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Grid2 as Grid, Typography, useTheme, useMediaQuery, CircularProgress } from '@mui/material';
 import LazyLoad from 'react-lazyload';
 import { Helmet } from 'react-helmet-async';
-import useLeagues from '../hooks/useLeagueS';
+import useLeagues from '../hooks/useLeagues';
 import useTeams from '../hooks/useTeams';
 import usePlayers from '../hooks/usePlayers';
 import Lottie from 'lottie-react';
