@@ -1,0 +1,104 @@
+:root {
+  font-family: Inter, sans-serif !important;
+  letter-spacing: -0.5px;
+
+  color-scheme: light dark;
+  color: #280047;
+  background-color: #edefe7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* MIO CODICE CSS */
+
+.menu-icon {
+  width: 30px !important;
+  height: 30px !important;
+  color: #280047 !important;
+}
+
+.MuiListItemIcon-root {
+  min-width: 46px !important;
+}
+
+.text-icon span {
+  font-size: 16px !important;
+  line-height: 26px !important;
+  letter-spacing: -0.3px !important;
+  font-weight: 600 !important;
+}
+
+.active-text span {
+  font-size: 16px !important;
+  line-height: 26px !important;
+  letter-spacing: -0.3px !important;
+  font-weight: 900 !important;
+}
+
+.list-menu {
+  padding: 14px 16px !important;
+}
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+/* TITOLI E TESTI SELEZIONE INIZIALE */
+.title-select {
+  font-size: 20px!important;
+  font-weight: bold!important;
+  margin-bottom: 20px!important;
+}
+
+.league-name-select {
+  font-size: 14px!important;
+  font-weight: 500!important;
+}
+
+.team-name-select {
+  font-size: 14px!important;
+  font-weight: 500!important;
+  text-align: center;
+}
+
+
+/* GRID DELLA SELEZIONE INIZIALE */
+.league-select {
+  border-radius: 50px!important;
+  border: 1px solid #280047;
+  background-color: #fff;
+  padding: 8px 16px!important;
+  align-items: center;
+}
+
+.team-select {
+  border-radius: 10px;
+  border: 1px solid #280047;
+  background-color: #fff;
+  padding: 16px 24px;
+  align-items: center;
+}
+
+.league-select:hover, .team-select:hover {
+  border: 2px solid #280047;
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.league-select:hover .league-name-select {
+  font-weight: bold!important;
+}
+
+.team-select:hover .team-name-select {
+  font-weight: bold!important;
+}
