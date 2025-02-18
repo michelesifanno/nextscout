@@ -10,10 +10,10 @@ function getLeague() {
     useEffect(() => {
         const fetchLeagues = async () => {
           try {
-            const response = await axios.get(`${import.meta.env.APIFOOTBALL_URL}/league`, {
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/league`, {
               headers: {
-                "x-rapidapi-host": `${import.meta.env.APIFOOTBALL_URL}`,
-                "x-rapidapi-key": `${import.meta.env.APIFOOTBALL_API_KEY}`,
+                "x-rapidapi-host": `${import.meta.env.VITE_BASE_URL}`,
+                "x-rapidapi-key": `${import.meta.env.VITE_API_KEY}`,
               },
             });
     

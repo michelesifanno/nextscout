@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import SignPage from "../pages/SignPage";
 import Welcome from "../pages/Welcome";
+import Player from "../pages/Player";
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/player/:slug",
+        element: <Player />,
       },
     ],
   },

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Grid2 as Grid, Typography, useTheme, useMediaQuery, CircularProgress } from '@mui/material';
+import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 import { Helmet } from 'react-helmet-async';
 import useLeagues from '../hooks/useLeagues';
@@ -7,6 +8,8 @@ import useTeams from '../hooks/useTeams';
 import usePlayers from '../hooks/usePlayers';
 import Lottie from 'lottie-react';
 import animationData from '../../public/lottie/login-animation.json';
+
+
 
 function Home() {
     const { leagues, loading, error } = useLeagues();
@@ -173,6 +176,7 @@ function Home() {
                                         players.map((player) => (
                                             <Grid container key={player.id} className="team-select" spacing={2} alignItems="center">
                                                 <Grid item xs={12} sx={{ textAlign: 'center' }}>
+                                                <Link to={`/player/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
                                                     <LazyLoad height={50} offset={100}>
                                                         <img
                                                             src={player.photo}
@@ -189,6 +193,7 @@ function Home() {
                                                     <Typography className="team-name-select">
                                                         {player.name}
                                                     </Typography>
+                                                    </Link>
                                                 </Grid>
                                             </Grid>
                                         ))
