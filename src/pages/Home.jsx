@@ -6,8 +6,6 @@ import { Helmet } from 'react-helmet-async';
 import useLeagues from '../hooks/useLeagues';
 import useTeams from '../hooks/useTeams';
 import usePlayers from '../hooks/usePlayers';
-import Lottie from 'lottie-react';
-import animationData from '../../public/lottie/login-animation.json';
 
 
 
@@ -52,11 +50,6 @@ function Home() {
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Box>
-                            <Lottie
-                                animationData={animationData}
-                                loop={true}
-                                style={{ width: '300px', height: '300px' }}
-                            />
                             <Typography className="title-select">
                                 Scegli campionato
                             </Typography>
