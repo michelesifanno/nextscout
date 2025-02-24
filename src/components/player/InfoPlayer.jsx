@@ -29,7 +29,7 @@ export default function InfoPlayer({player, stats}) {
         <Container>
             <Box className="info-player">
                 <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Grid size={{ xs: 12, md: 5 }} sx={{ display: 'flex', alignItems: 'center', p: { xs: 3, md: 4 }, borderBottom: { xs: '2px solid #000', md: 'none' } }}>
+                    <Grid size={{ xs: 12, md: 5 }} sx={{ display: 'flex', alignItems: 'center', p:3, borderBottom: { xs: '2px solid #000', md: 'none' } }}>
                         <img
                             src={player.photo}
                             alt={player.name}
