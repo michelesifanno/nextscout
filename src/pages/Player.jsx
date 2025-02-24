@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import InfoPlayer from "../components/player/infoPlayer";
+import InfoPlayer from "../components/player/InfoPlayer";
 import usePlayerStats from "../utils/usePlayerStats";
 
 export default function Player() {
