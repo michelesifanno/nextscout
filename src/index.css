@@ -4,7 +4,7 @@
 
   color-scheme: light dark;
   color: #280047;
-  background-color: #edefe7;
+  background-color: #f9f5ed;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,8 +13,9 @@
 }
 
 
-/* MIO CODICE CSS */
 
+
+/* MIO CODICE CSS */
 .menu-icon {
   width: 30px !important;
   height: 30px !important;
@@ -101,4 +102,52 @@
 
 .team-select:hover .team-name-select {
   font-weight: bold!important;
+}
+
+/* PAGINA PLAYER */
+.info-player {
+  border-style: solid;
+  border-width: 2px 2px 2px 2px;
+  box-shadow: 2px 2px 0px 0px #000000;
+  background-color: #fff;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+}
+.info-player:hover {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+h2.title-player {
+  font-size: 22px!important;
+  line-height: 32px!important;
+  font-weight:900!important;
+  margin: 0px!important;
+}
+
+
+h6.role-player {
+  color: #AE7AFF;
+  font-size: 14px;
+  font-weight: 900!important;
+  text-transform: uppercase;
+  line-height: 24px!important;
+  letter-spacing: 0px!important;
+  margin: 0px!important;
+}
+
+h4.info-value {
+  font-size: 16px!important;
+  font-weight: 800!important;
+  line-height: 22px!important;
+  letter-spacing: -0.5px!important;
+  margin: 0px!important;
+}
+
+p.info-title {
+  font-size: 12px!important;
+  font-weight: 900!important;
+  text-transform: uppercase!important;
+  line-height: 22px!important;
+  letter-spacing: 0px!important;
+  color: #18002A8F!important;
+  margin: 0px!important;
 }
