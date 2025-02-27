@@ -6,39 +6,39 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 
 
-export default function AppearencesPlayer({ stats }) {
+export default function PassesStats({ stats }) {
 
-    const totalAppearances = stats.reduce((acc, curr) => acc + (curr.games.appearences || 0), 0);
-    const totalLineups = stats.reduce((acc, curr) => acc + (curr.games.lineups || 0), 0);
+    const totalPasses = stats.reduce((acc, curr) => acc + (curr.passes.key || 0), 0);
+    const totalAssist = stats.reduce((acc, curr) => acc + (curr.goals.assists || 0), 0);
 
-    const uData = [totalAppearances];
-    const pData = [totalLineups];
+    const uData = [totalPasses];
+    const pData = [totalAssist];
 
 
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: 4, borderRadius: 2 }}>
-            <Typography variant="h2" className='title-stats' sx={{ color: '#7A92FF' }}>
-                Appearences
+            <Typography variant="h2" className='title-stats' sx={{ color: '#FF7AD9' }}>
+                Passes
             </Typography>
             <BarChart
                 height={350}
                 series={[
                     {
-                        data: [totalAppearances],
-                        id: 'appearancesId',
-                        label: 'Appearences',
-                        color: '#7A92FF',
+                        data: [totalPasses],
+                        id: 'key-pass',
+                        label: 'Key Pass',
+                        color: '#FF7AD9',
                         barWidth: 20
                     },
                     {
-                        data: [totalLineups],
-                        id: 'lineupsId',
-                        label: 'Lineups',
-                        color: '#7A92FF',
+                        data: [totalAssist],
+                        id: 'assist',
+                        label: 'Assist',
+                        color: '#FF7AD9',
                         barWidth: 20
                     }
                 ]}
-                xAxis={[{ data: ['Appearances and Lineups'], scaleType: 'band', categoryGapRatio: 0.5, barGapRatio: 0.5 }]}
+                xAxis={[{ data: ['Key Passes and Assist'], scaleType: 'band', categoryGapRatio: 0.5, barGapRatio: 0.5 }]}
                 slotProps={{
                     legend: {
                         position: { vertical: 'bottom', horizontal: 'right' }, // Posizione della legenda

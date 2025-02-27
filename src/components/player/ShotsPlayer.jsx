@@ -6,39 +6,39 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 
 
-export default function AppearencesPlayer({ stats }) {
+export default function ShotsPlayer({ stats }) {
 
-    const totalAppearances = stats.reduce((acc, curr) => acc + (curr.games.appearences || 0), 0);
-    const totalLineups = stats.reduce((acc, curr) => acc + (curr.games.lineups || 0), 0);
+    const totalShots = stats.reduce((acc, curr) => acc + (curr.shots.total || 0), 0);
+    const totalOnTarget = stats.reduce((acc, curr) => acc + (curr.shots.on || 0), 0);
 
-    const uData = [totalAppearances];
-    const pData = [totalLineups];
+    const uData = [totalShots];
+    const pData = [totalOnTarget];
 
 
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: 4, borderRadius: 2 }}>
-            <Typography variant="h2" className='title-stats' sx={{ color: '#7A92FF' }}>
-                Appearences
+            <Typography variant="h2" className='title-stats' sx={{ color: '#D0FF00' }}>
+                Shots
             </Typography>
             <BarChart
                 height={350}
                 series={[
                     {
-                        data: [totalAppearances],
-                        id: 'appearancesId',
-                        label: 'Appearences',
-                        color: '#7A92FF',
+                        data: [totalShots],
+                        id: 'shots',
+                        label: 'Shots',
+                        color: '#D0FF00',
                         barWidth: 20
                     },
                     {
-                        data: [totalLineups],
-                        id: 'lineupsId',
-                        label: 'Lineups',
-                        color: '#7A92FF',
+                        data: [totalOnTarget],
+                        id: 'ontarget',
+                        label: 'On Target',
+                        color: '#D0FF00',
                         barWidth: 20
                     }
                 ]}
-                xAxis={[{ data: ['Appearances and Lineups'], scaleType: 'band', categoryGapRatio: 0.5, barGapRatio: 0.5 }]}
+                xAxis={[{ data: ['Shots | Total and On Target'], scaleType: 'band', categoryGapRatio: 0.5, barGapRatio: 0.5 }]}
                 slotProps={{
                     legend: {
                         position: { vertical: 'bottom', horizontal: 'right' }, // Posizione della legenda

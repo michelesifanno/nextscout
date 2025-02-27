@@ -13,7 +13,7 @@ import { useMediaQuery } from '@mui/material';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#280047',  // Il colore che hai fornito
+      main: '#fff',  // Il colore che hai fornito
     },
     secondary: {
       main: '#7000c6',  // Colore complementare ispirato a Sofascore
@@ -26,8 +26,8 @@ const theme = createTheme({
       paper: '#edefe7',  // Colore di sfondo dei componenti
     },
     text: {
-      primary: '#280047',  // Colore del testo primario scuro
-      secondary: '#e1ff57',  // Colore del testo secondario più chiaro
+      primary: '#B3B3B3',  // Colore del testo primario scuro
+      secondary: '#18002a',  // Colore del testo secondario più chiaro
     },
     error: {
       main: '#d32f2f',  // Colore di errore
@@ -44,6 +44,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Inter, sans-serif',
+    fontSize:'12px',
   },
 });
 

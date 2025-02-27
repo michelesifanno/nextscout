@@ -183,7 +183,7 @@ export default function AppNavbar() {
 
   return (
     <>
-      <Drawer
+      {/* <Drawer
         variant="permanent"
         sx={{
           width: isSearchActive ? 62 : 250,
@@ -206,7 +206,7 @@ export default function AppNavbar() {
 
       <CustomDrawer open={isFollowActive} onClose={handleFollowToggle}>
         <Follow />
-      </CustomDrawer>
+      </CustomDrawer> */}
 
     </>
   );

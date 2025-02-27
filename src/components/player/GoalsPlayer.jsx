@@ -6,39 +6,39 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 
 
-export default function AppearencesPlayer({ stats }) {
+export default function GoalsPlayer({ stats }) {
 
-    const totalAppearances = stats.reduce((acc, curr) => acc + (curr.games.appearences || 0), 0);
-    const totalLineups = stats.reduce((acc, curr) => acc + (curr.games.lineups || 0), 0);
+    const totalGoals = stats.reduce((acc, curr) => acc + (curr.goals.total || 0), 0);
+    const totalPenalty = stats.reduce((acc, curr) => acc + (curr.penalty.scored || 0), 0);
 
-    const uData = [totalAppearances];
-    const pData = [totalLineups];
+    const uData = [totalGoals];
+    const pData = [totalPenalty];
 
 
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: 4, borderRadius: 2 }}>
-            <Typography variant="h2" className='title-stats' sx={{ color: '#7A92FF' }}>
-                Appearences
+            <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
+                Goals
             </Typography>
             <BarChart
                 height={350}
                 series={[
                     {
-                        data: [totalAppearances],
-                        id: 'appearancesId',
-                        label: 'Appearences',
-                        color: '#7A92FF',
+                        data: [totalGoals],
+                        id: 'goals',
+                        label: 'Goals',
+                        color: '#AE7AFF',
                         barWidth: 20
                     },
                     {
-                        data: [totalLineups],
-                        id: 'lineupsId',
-                        label: 'Lineups',
-                        color: '#7A92FF',
+                        data: [totalPenalty],
+                        id: 'Penalty',
+                        label: 'Penalty',
+                        color: '#AE7AFF',
                         barWidth: 20
                     }
                 ]}
-                xAxis={[{ data: ['Appearances and Lineups'], scaleType: 'band', categoryGapRatio: 0.5, barGapRatio: 0.5 }]}
+                xAxis={[{ data: ['Goals and Penalty'], scaleType: 'band', categoryGapRatio: 0.5, barGapRatio: 0.5 }]}
                 slotProps={{
                     legend: {
                         position: { vertical: 'bottom', horizontal: 'right' }, // Posizione della legenda

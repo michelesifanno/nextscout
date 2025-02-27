@@ -2,9 +2,9 @@
   font-family: Inter, sans-serif !important;
   letter-spacing: -0.5px;
 
-  color-scheme: light dark;
-  color: #280047;
-  background-color: #f9f5ed;
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,9 +13,13 @@
 }
 
 
-
-
 /* MIO CODICE CSS */
+
+.MuiContainer-root {
+  max-width: 1320px!important;
+}
+
+
 .menu-icon {
   width: 30px !important;
   height: 30px !important;
@@ -105,21 +109,11 @@
 }
 
 /* PAGINA PLAYER */
-.info-player {
-  border-style: solid;
-  border-width: 2px 2px 2px 2px;
-  box-shadow: 2px 2px 0px 0px #000000;
-  background-color: #fff;
-  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-}
-.info-player:hover {
-  box-shadow: 4px 4px 0px 0px #000000;
-}
 
 h2.title-player {
   font-size: 22px!important;
   line-height: 32px!important;
-  font-weight:900!important;
+  font-weight:800!important;
   margin: 0px!important;
 }
 
@@ -127,7 +121,7 @@ h2.title-player {
 h6.role-player {
   color: #AE7AFF;
   font-size: 14px;
-  font-weight: 900!important;
+  font-weight: 800!important;
   text-transform: uppercase;
   line-height: 24px!important;
   letter-spacing: 0px!important;
@@ -135,19 +129,62 @@ h6.role-player {
 }
 
 h4.info-value {
-  font-size: 16px!important;
-  font-weight: 800!important;
-  line-height: 22px!important;
-  letter-spacing: -0.5px!important;
-  margin: 0px!important;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 28px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
 }
 
 p.info-title {
-  font-size: 12px!important;
-  font-weight: 900!important;
-  text-transform: uppercase!important;
-  line-height: 22px!important;
-  letter-spacing: 0px!important;
-  color: #18002A8F!important;
-  margin: 0px!important;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: #B3B3B3;
+  margin:0px!important;
+}
+
+.stats-icon {
+  color: #D0FF00;
+  font-size: 30px;
+  padding: 10px;
+  border: 3px solid #D0FF00;
+}
+
+.stats-icon:hover {
+  color: #000;
+  font-size: 30px;
+  padding: 10px;
+  border: 3px solid #000;
+  background-color: #D0FF00;
+}
+
+.favorite-icon {
+  color: #AE7AFF;
+  font-size: 30px;
+  padding: 10px;
+  border: 3px solid #AE7AFF;
+}
+
+.favorite-icon:hover {
+  color: #000;
+  font-size: 30px;
+  padding: 10px;
+  border: 3px solid #000;
+  background-color: #AE7AFF;
+}
+
+h2.title-stats {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 26px;
+  letter-spacing: 0px;
+}
+
+.MuiChartsLegend-mark {
+  height: 10px;
+  width: 10px;
 }

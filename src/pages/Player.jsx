@@ -1,5 +1,12 @@
+import * as React from 'react';
+import { Typography, Grid2 as Grid, Box, Container } from "@mui/material";
 import { useParams } from "react-router-dom";
 import InfoPlayer from "../components/player/InfoPlayer";
+import AppearencesPlayer from "../components/player/ AppearencesPlayer";
+import ShotsPlayer from '../components/player/ShotsPlayer';
+import GoalsPlayer from '../components/player/GoalsPlayer';
+import PassesStats from '../components/player/PassesStats';
+
 import usePlayerStats from "../utils/usePlayerStats";
 
 export default function Player() {
@@ -15,8 +22,26 @@ export default function Player() {
     }
 
     return (
-        <>
-            <InfoPlayer player={player} stats={stats} />
-        </>
+        <Container>
+            <Box>
+                <InfoPlayer player={player} stats={stats} />
+            </Box>
+            <Box sx={{ mt: 2 }}>
+                <Grid container spacing={2}>
+                    <Grid size={{ xs: 12, md: 3 }}>
+                        <AppearencesPlayer stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 3 }}>
+                        <ShotsPlayer stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 3 }}>
+                        <GoalsPlayer stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 3 }}>
+                        <PassesStats stats={stats} />
+                    </Grid>
+                </Grid>
+            </Box>
+        </Container>
     );
 }

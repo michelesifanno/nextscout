@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from '../pages/Root';
 import Home from "../pages/Home";
 import ProtectedRoute from "../components/general/ProtectedRoute";
+import ScrollToTop from "../components/ScrollToTop";
+
 import NotFoundRoute from "../pages/NotFoundRoute";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
@@ -12,7 +14,12 @@ import Player from "../pages/Player";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: (
+    <>
+    <ScrollToTop />
+    <Root />
+    </>
+    ),
     children: [
       {
         path: "/",
