@@ -6,6 +6,9 @@ import AppearencesPlayer from "../components/player/ AppearencesPlayer";
 import ShotsPlayer from '../components/player/ShotsPlayer';
 import GoalsPlayer from '../components/player/GoalsPlayer';
 import PassesStats from '../components/player/PassesStats';
+import ShotsAccurancy from '../components/player/ShotsAccurancy';
+import PassesAccurancy from '../components/player/PassesAccurancy';
+import DribblesAccurancy from '../components/player/DribblesAccuracy';
 
 import usePlayerStats from "../utils/usePlayerStats";
 
@@ -39,6 +42,15 @@ export default function Player() {
                     </Grid>
                     <Grid size={{ xs: 12, md: 3 }}>
                         <PassesStats stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 4 }}>
+                        <ShotsAccurancy stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 4 }}>
+                        <PassesAccurancy stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 4 }}>
+                        <DribblesAccurancy stats={stats} />
                     </Grid>
                 </Grid>
             </Box>
