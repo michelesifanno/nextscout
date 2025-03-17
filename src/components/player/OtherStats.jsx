@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 export default function OtherStats({ stats }) {
+    
     const [totalStats, setTotalStats] = useState({});
 
     // Funzione per calcolare il totale di una statistica nidificata

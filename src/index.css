@@ -188,3 +188,7 @@ h2.title-stats {
   height: 10px;
   width: 10px;
 }
+
+.MuiTableCell-root {
+  border-bottom: 1px solid rgba(224, 224, 224, 0.1)!important;
+}
