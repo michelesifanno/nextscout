@@ -11,7 +11,7 @@ import PassesAccurancy from '../components/player/PassesAccurancy';
 import DribblesAccurancy from '../components/player/DribblesAccuracy';
 import OtherStats from '../components/player/OtherStats';
 import CareerStats from '../components/player/CareerStats';
-
+import RadarStats from '../components/player/radarStats';
 import usePlayerStats from "../utils/usePlayerStats";
 
 export default function Player() {
@@ -33,6 +33,9 @@ export default function Player() {
             </Box>
             <Box sx={{ mt: 2 }}>
                 <Grid container spacing={2}>
+                <Grid size={{ xs: 6 }}>
+                        <RadarStats stats={stats} />
+                    </Grid>
                     <Grid size={{ xs: 12, md: 3 }}>
                         <AppearencesPlayer stats={stats} />
                     </Grid>
