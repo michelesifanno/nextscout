@@ -21,7 +21,7 @@ export default function ShotsAccurancy({ stats }) {
 
 
     return (
-        <Container sx={{ display: 'block', backgroundColor: '#121212', p: 4, borderRadius: 2 }}>
+        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Typography variant="h2" className='title-stats' sx={{ color: '#D0FF00' }}>
                 Shots accurancy
             </Typography>

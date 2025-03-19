@@ -46,9 +46,6 @@ export default function RadarStats({ stats }) {
         : "N/A";
 
 
-    console.log("Duels Percentage (before adding to dataset):", duelsPercentage, typeof duelsPercentage);
-
-
     const options = {
         responsive: true,
         maintainAspectRatio: true,
@@ -82,8 +79,8 @@ export default function RadarStats({ stats }) {
             {
                 label: 'Performance (%)',
                 data: [],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(181, 54, 235, 0.2)',
+                borderColor: '#AE7AFF',
                 borderWidth: 1,
 
             },
@@ -91,15 +88,15 @@ export default function RadarStats({ stats }) {
     };
 
     if (shotsPercentage !== "N/A") {
-        radarData.labels.push("Shots on Target %");
+        radarData.labels.push("Shots");
         radarData.datasets[0].data.push(Number(shotsPercentage)); // CONVERSIONE FORZATA
     }
     if (dribblesPercentage !== "N/A") {
-        radarData.labels.push("Dribbles Success %");
+        radarData.labels.push("Dribbles");
         radarData.datasets[0].data.push(Number(dribblesPercentage)); // CONVERSIONE FORZATA
     }
     if (duelsPercentage !== "N/A") {
-        radarData.labels.push("Duels Won %");
+        radarData.labels.push("Duels");
         radarData.datasets[0].data.push(Number(duelsPercentage)); // CONVERSIONE FORZATA
     }
 
@@ -107,7 +104,7 @@ export default function RadarStats({ stats }) {
     return (
         <>
             {radarData.labels.length > 0 ? (
-                    <Radar data={radarData} options={options} />
+                <Radar data={radarData} options={options} />
             ) : (
                 <Typography variant="h6" align="center" color="textSecondary">
                     No data

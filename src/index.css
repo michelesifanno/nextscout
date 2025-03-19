@@ -112,9 +112,36 @@
 
 h2.title-player {
   font-size: 22px!important;
-  line-height: 32px!important;
+  line-height: 25px!important;
   font-weight:800!important;
   margin: 0px!important;
+}
+
+h2.value-stats {
+  font-size: 22px!important;
+  line-height: 25px!important;
+  font-weight:800!important;
+  margin-bottom: -20px!important;
+}
+
+h2.value-stats-table {
+  font-size: 18px!important;
+  line-height: 18px!important;
+  font-weight:800!important;
+  margin-bottom: -20px!important;
+}
+
+h2.value-stats-table-season {
+  font-size: 18px!important;
+  line-height: 18px!important;
+  font-weight:800!important;
+  margin-bottom: 0px!important;
+  text-align: right!important;
+  color: #fff!important;
+}
+
+.align-right {
+  text-align: right!important;
 }
 
 
@@ -136,6 +163,14 @@ h4.info-value {
   color: #FFFFFF;
 }
 
+h4.info-value-stats {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+}
+
 p.info-title {
   font-size: 10px;
   font-weight: 600;
@@ -146,11 +181,21 @@ p.info-title {
   margin:0px!important;
 }
 
+p.info-title-table {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #B3B3B3;
+  margin:0px!important;
+}
+
 .stats-icon {
-  color: #D0FF00;
+  color: #AE7AFF;
   font-size: 30px;
   padding: 10px;
-  border: 3px solid #D0FF00;
+  border: 3px solid #AE7AFF;
 }
 
 .stats-icon:hover {
@@ -158,14 +203,14 @@ p.info-title {
   font-size: 30px;
   padding: 10px;
   border: 3px solid #000;
-  background-color: #D0FF00;
+  background-color: #AE7AFF;
 }
 
 .favorite-icon {
-  color: #AE7AFF;
+  color: #FF7AD9;
   font-size: 30px;
   padding: 10px;
-  border: 3px solid #AE7AFF;
+  border: 3px solid #FF7AD9;
 }
 
 .favorite-icon:hover {
@@ -173,7 +218,7 @@ p.info-title {
   font-size: 30px;
   padding: 10px;
   border: 3px solid #000;
-  background-color: #AE7AFF;
+  background-color: #FF7AD9;
 }
 
 h2.title-stats {

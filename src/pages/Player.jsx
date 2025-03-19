@@ -11,8 +11,8 @@ import PassesAccurancy from '../components/player/PassesAccurancy';
 import DribblesAccurancy from '../components/player/DribblesAccuracy';
 import OtherStats from '../components/player/OtherStats';
 import CareerStats from '../components/player/CareerStats';
-import RadarStats from '../components/player/radarStats';
 import usePlayerStats from "../utils/usePlayerStats";
+import PlayerStats from '../components/player/PlayerStats';
 
 export default function Player() {
     const { slug } = useParams();
@@ -33,8 +33,8 @@ export default function Player() {
             </Box>
             <Box sx={{ mt: 2 }}>
                 <Grid container spacing={2}>
-                <Grid size={{ xs: 6 }}>
-                        <RadarStats stats={stats} />
+                    {/* <Grid size={{ xs: 12, md: 6 }}>
+                        <PlayerStats stats={stats} />
                     </Grid>
                     <Grid size={{ xs: 12, md: 3 }}>
                         <AppearencesPlayer stats={stats} />
@@ -47,7 +47,7 @@ export default function Player() {
                     </Grid>
                     <Grid size={{ xs: 12, md: 3 }}>
                         <PassesStats stats={stats} />
-                    </Grid>
+                    </Grid> */}
                     <Grid size={{ xs: 12, md: 4 }}>
                         <ShotsAccurancy stats={stats} />
                     </Grid>
@@ -57,12 +57,20 @@ export default function Player() {
                     <Grid size={{ xs: 12, md: 4 }}>
                         <DribblesAccurancy stats={stats} />
                     </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
+
+                    <Grid size={{ xs: 12, md: 6 }}>
+                        <PlayerStats stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 6 }}>
+                        <CareerStats stats={stats} />
+                    </Grid>
+                    
+                    {/* <Grid size={{ xs: 12, md: 4 }}>
                         <OtherStats stats={stats} />
                     </Grid>
                     <Grid size={{ xs: 12, md: 8 }}>
                         <CareerStats stats={stats} />
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Box>
         </Container>

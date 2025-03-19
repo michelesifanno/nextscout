@@ -29,7 +29,7 @@ export default function InfoPlayer({ player, stats }) {
     const positionName = statistics.games.position || "N/A"; // Se non ci sono statistiche, mostra "N/A"
 
     return (
-        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#121212', p: 4, borderRadius: 2 }}>
+        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Grid size={{ xs: 12, md: 5 }} sx={{ display: 'flex', alignItems: 'center' }}>
                 <img
                     src={player.photo}
@@ -48,7 +48,7 @@ export default function InfoPlayer({ player, stats }) {
             </Grid>
             <Grid size={{ xs: 12, md: 7 }}>
                 <Grid container sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <img
                             src={statistics.team.logo}
                             alt={teamName}
@@ -57,7 +57,7 @@ export default function InfoPlayer({ player, stats }) {
                             style={{ objectFit: 'contain' }}
                         />
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <Typography variant="h4" className="info-value">
                             {player.nationality ? player.nationality : "N/A"}
                         </Typography>
@@ -65,7 +65,7 @@ export default function InfoPlayer({ player, stats }) {
                             Nationality
                         </p>
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <Typography variant="h4" className="info-value">
                             {player.age ? player.age : "N/A"}
                         </Typography>
@@ -73,7 +73,7 @@ export default function InfoPlayer({ player, stats }) {
                             Age
                         </p>
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <Typography variant="h4" className="info-value">
                             {player.weight ? player.weight : "N/A"}
                         </Typography>
@@ -81,7 +81,7 @@ export default function InfoPlayer({ player, stats }) {
                             Weight
                         </p>
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <Typography variant="h4" className="info-value">
                             {player.height ? player.height : "N/A"}
                         </Typography>
@@ -89,18 +89,18 @@ export default function InfoPlayer({ player, stats }) {
                             Height
                         </p>
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ backgroundColor: "FF7AD9", p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ backgroundColor: "FF7AD9", p: { xs: 1, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <Typography variant="h4" className="info-value">
-                            <span style={{ color: '#FF7AD9' }}>{averageRating ? averageRating : "N/A"}</span>
+                            <span style={{ color: '#D0FF00' }}>{averageRating ? averageRating : "N/A"}</span>
                         </Typography>
                         <p className="info-title">
-                            <span style={{ color: '#FF7AD9' }}>Rating</span>
+                            <span style={{ color: '#D0FF00' }}>Rating</span>
                         </p>
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '6px', md: 0 } }}>
                         <QueryStatsOutlinedIcon className='stats-icon' />
                     </Grid>
-                    <Grid size={{ xs: 3, md: 1.5 }} sx={{ p: { xs: 3, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                    <Grid size={{ xs: 4, md: 1.5 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '6px', md: 0 } }}>
                         <FavoriteBorderOutlinedIcon className='favorite-icon' />
                     </Grid>
                 </Grid>
