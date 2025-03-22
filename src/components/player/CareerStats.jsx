@@ -3,7 +3,7 @@ import { Typography, Container, Table, TableBody, TableCell, TableContainer, Tab
 
 export default function CareerStats({ stats }) {
 
-    const rows = ["Club", "Competitions", "Appearences", "Goals", "Assist"];
+    const rows = ["Club", "Competitions", "P", "G", "A"];
 
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>

@@ -2,14 +2,9 @@ import * as React from 'react';
 import { Typography, Grid2 as Grid, Box, Container } from "@mui/material";
 import { useParams } from "react-router-dom";
 import InfoPlayer from "../components/player/InfoPlayer";
-import AppearencesPlayer from "../components/player/ AppearencesPlayer";
-import ShotsPlayer from '../components/player/ShotsPlayer';
-import GoalsPlayer from '../components/player/GoalsPlayer';
-import PassesStats from '../components/player/PassesStats';
 import ShotsAccurancy from '../components/player/ShotsAccurancy';
 import PassesAccurancy from '../components/player/PassesAccurancy';
 import DribblesAccurancy from '../components/player/DribblesAccuracy';
-import OtherStats from '../components/player/OtherStats';
 import CareerStats from '../components/player/CareerStats';
 import usePlayerStats from "../utils/usePlayerStats";
 import PlayerStats from '../components/player/PlayerStats';
@@ -28,8 +23,16 @@ export default function Player() {
 
     return (
         <Container>
-            <Box>
-                <InfoPlayer player={player} stats={stats} />
+            <Box sx={{ mt: 2 }}>
+                <Grid container spacing={2}>
+                    <Grid size={{ xs: 12, md: 8 }}>
+                        <InfoPlayer player={player} stats={stats} />
+                        <PlayerStats stats={stats} />
+                    </Grid>
+                    <Grid size={{ xs: 12, md: 4 }}>
+                    <CareerStats stats={stats} />
+                    </Grid>
+                </Grid>
             </Box>
             <Box sx={{ mt: 2 }}>
                 <Grid container spacing={2}>
@@ -48,7 +51,7 @@ export default function Player() {
                     <Grid size={{ xs: 12, md: 3 }}>
                         <PassesStats stats={stats} />
                     </Grid> */}
-                    <Grid size={{ xs: 12, md: 4 }}>
+                    {/* <Grid size={{ xs: 12, md: 4 }}>
                         <ShotsAccurancy stats={stats} />
                     </Grid>
                     <Grid size={{ xs: 12, md: 4 }}>
@@ -56,7 +59,7 @@ export default function Player() {
                     </Grid>
                     <Grid size={{ xs: 12, md: 4 }}>
                         <DribblesAccurancy stats={stats} />
-                    </Grid>
+                    </Grid> */}
 
                     <Grid size={{ xs: 12, md: 6 }}>
                         <PlayerStats stats={stats} />
@@ -64,7 +67,7 @@ export default function Player() {
                     <Grid size={{ xs: 12, md: 6 }}>
                         <CareerStats stats={stats} />
                     </Grid>
-                    
+
                     {/* <Grid size={{ xs: 12, md: 4 }}>
                         <OtherStats stats={stats} />
                     </Grid>

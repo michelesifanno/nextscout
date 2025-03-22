@@ -27,7 +27,7 @@ export default function PlayerStats({ stats }) {
 
     // Lista delle statistiche da calcolare per un Portiere
     const atkData = ["goals.total", "goals.assists", "shots.total", "shots.on", "dribbles.success",
-        "dribbles.attempts", "passes.key", "penalty.scored", "fouls.drawn"
+        "dribbles.attempts", "passes.total", "passes.key", "penalty.scored", "penalty.missed", "fouls.committed", "fouls.drawn"
     ];
 
 

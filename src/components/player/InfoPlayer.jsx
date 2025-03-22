@@ -22,14 +22,14 @@ export default function InfoPlayer({ player, stats }) {
 
 
     // Accedi alla prima statistica
-    const statistics = stats[1];
+    const statistics = stats[0];
 
     // Verifica se le statistiche e la squadra esistono
     const teamName = statistics.team.name || "N/A"; // Se non ci sono statistiche, mostra "N/A"
     const positionName = statistics.games.position || "N/A"; // Se non ci sono statistiche, mostra "N/A"
 
     return (
-        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
+        <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2, mb: 2 }}>
             <Grid size={{ xs: 12, md: 5 }} sx={{ display: 'flex', alignItems: 'center' }}>
                 <img
                     src={player.photo}
