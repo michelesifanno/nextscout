@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Typography, Container } from "@mui/material";
+import { Typography, Container, Grid2 as Grid } from "@mui/material";
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -10,6 +10,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
+import PlayerStats from './PlayerStats';
 
 ChartJS.register(
     RadialLinearScale,
@@ -102,15 +103,23 @@ export default function RadarStats({ stats }) {
 
 
     return (
-        <>
-            {radarData.labels.length > 0 ? (
-                <Radar data={radarData} options={options} />
-            ) : (
-                <Typography variant="h6" align="center" color="textSecondary">
-                    No data
-                </Typography>
-            )}
-            {console.log("Radar Data:", JSON.stringify(radarData, null, 2))}
-        </>
+        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
+            <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
+                Season Stats
+            </Typography>
+            <Grid size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', marginBottom:'-50px!important' }}>
+                {radarData.labels.length > 0 ? (
+                    <Radar data={radarData} options={options} />
+                ) : (
+                    <Typography variant="h6" align="center" color="textSecondary">
+                        No data
+                    </Typography>
+                )}
+                {console.log("Radar Data:", JSON.stringify(radarData, null, 2))}
+            </Grid>
+            <Grid size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center' }}>
+                <PlayerStats stats={stats} />
+            </Grid>
+        </Container>
     );
 }

@@ -117,6 +117,14 @@ h2.title-player {
   margin: 0px!important;
 }
 
+h2.title-squad {
+  font-size: 16px!important;
+  line-height: 16px!important;
+  font-weight:800!important;
+  margin: 0px!important;
+  color:#fff;
+}
+
 h2.value-stats {
   font-size: 22px!important;
   line-height: 25px!important;
@@ -184,9 +192,9 @@ p.info-title {
 p.info-title-table {
   font-size: 10px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: normal;
   line-height: 20px;
-  letter-spacing: 0px;
+  letter-spacing: -0.5px;
   color: #B3B3B3;
   margin:0px!important;
 }
@@ -194,31 +202,21 @@ p.info-title-table {
 .stats-icon {
   color: #AE7AFF;
   font-size: 30px;
-  padding: 10px;
-  border: 3px solid #AE7AFF;
 }
 
 .stats-icon:hover {
-  color: #000;
-  font-size: 30px;
-  padding: 10px;
-  border: 3px solid #000;
-  background-color: #AE7AFF;
+  color: #AE7AFF;
+  font-size: 35px;
 }
 
 .favorite-icon {
   color: #FF7AD9;
   font-size: 30px;
-  padding: 10px;
-  border: 3px solid #FF7AD9;
 }
 
 .favorite-icon:hover {
-  color: #000;
-  font-size: 30px;
-  padding: 10px;
-  border: 3px solid #000;
-  background-color: #FF7AD9;
+  color: #FF7AD9;
+  font-size: 35px;
 }
 
 h2.title-stats {
@@ -236,4 +234,15 @@ h2.title-stats {
 
 .MuiTableCell-root {
   border-bottom: 1px solid rgba(224, 224, 224, 0.1)!important;
+}
+
+#panel-stats {
+  padding: 0px;
+}
+
+span.MuiAccordionSummary-content, span.MuiAccordionSummary-content.Mui-expanded {
+  margin: 0px;
+}
+button.MuiAccordionSummary-root.Mui-expanded {
+  min-height: 0px;
 }

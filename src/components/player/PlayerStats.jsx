@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Typography, Grid2 as Grid, Box, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-
+import { Typography, Grid2 as Grid, Accordion, AccordionActions, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 export default function PlayerStats({ stats }) {
@@ -129,37 +129,47 @@ export default function PlayerStats({ stats }) {
 
 
     return (
-        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
-            <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
-                Stats
-            </Typography>
-            <TableContainer>
-                <Table sx={{ minWidth: '100%' }} aria-label="tabella statistiche">
-                    <TableBody>
-                        {Object.entries(groupedStats).map(([mainKey, subStats]) => (
-                            <TableRow key={mainKey}>
-                                {/* Colonna del titolo principale */}
-                                <TableCell sx={{ fontWeight: 'bold', color: '#fff' }}>
-                                    <Typography variant="h4" className="info-value-stats">
-                                        {formatTitle(mainKey)}
-                                    </Typography>
-                                </TableCell>
-                                {/* Colonne con ogni sotto-statistica */}
-                                {subStats.map(({ subKey, value }) => (
-                                    <TableCell key={subKey} align="right" sx={{ color: '#fff' }}>
-                                        <Typography variant="h2" className="value-stats-table">
-                                            {value}<br />
-                                        </Typography><br />
-                                        <p className="info-title-table">
-                                            {formatTitle(subKey)}
-                                        </p>
+        <>
+            <Accordion sx={{ minWidth: '100%!important', backgroundColor: '#0000', boxShadow: 'none', padding: '0px', minHeight: '0px' }}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: '#fff' }} />}
+                    aria-controls="panel-content"
+                    id="panel-stats"
+                    sx={{ margin: '0px', padding: '0px', minHeight: '0px' }}
+                >
+                    <p className='info-title'>
+                        Detail
+                    </p>
+                </AccordionSummary>
+                <AccordionDetails sx={{ padding: '0px' }}>
+                    <Table sx={{ minWidth: '100%' }} aria-label="tabella statistiche">
+                        <TableBody>
+                            {Object.entries(groupedStats).map(([mainKey, subStats]) => (
+                                <TableRow key={mainKey}>
+                                    {/* Colonna del titolo principale */}
+                                    <TableCell sx={{ fontWeight: 'bold', color: '#fff', padding: '16px 0px' }}>
+                                        <Typography variant="h4" className="info-value-stats">
+                                            {formatTitle(mainKey)}
+                                        </Typography>
                                     </TableCell>
-                                ))}
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Container>
+                                    {/* Colonne con ogni sotto-statistica */}
+                                    {subStats.map(({ subKey, value }) => (
+                                        <TableCell key={subKey} align="right" sx={{ color: '#fff', padding: '16px 0px' }}>
+                                            <Typography variant="h2" className="value-stats-table">
+                                                {value}<br />
+                                            </Typography><br />
+                                            <p className="info-title-table">
+                                                {formatTitle(subKey)}
+                                            </p>
+                                        </TableCell>
+                                    ))}
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+
+                </AccordionDetails>
+            </Accordion>
+        </>
     )
 }
