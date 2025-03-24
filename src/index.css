@@ -12,6 +12,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (max-width: 600px) { /* Solo per schermi fino a 600px */
+  .MuiContainer-root {
+    padding-left: 10px!important;
+    padding-right: 10px!important;
+  }
+}
+
+
+body {
+  margin: 0px !important;
+}
 
 /* MIO CODICE CSS */
 
