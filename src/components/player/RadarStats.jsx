@@ -31,6 +31,14 @@ export default function RadarStats({ stats }) {
         : "N/A";
 
 
+    const totalTackles = stats.reduce((acc, curr) => acc + (curr.tackles?.total || 0), 0);
+    const interceptionsTackles = stats.reduce((acc, curr) => acc + (curr.tackles?.interceptions || 0), 0);
+
+    const tacklesPercentage = totalTackles > 0
+        ? ((interceptionsTackles / totalTackles) * 100).toFixed(0)
+        : "N/A";
+
+
     const totalDribbles = stats.reduce((acc, curr) => acc + (curr.dribbles?.attempts || 0), 0);
     const successDribbles = stats.reduce((acc, curr) => acc + (curr.dribbles?.success || 0), 0);
 
@@ -45,6 +53,16 @@ export default function RadarStats({ stats }) {
     const duelsPercentage = totalDuels > 0
         ? ((wonDuels / totalDuels) * 100).toFixed(0)
         : "N/A";
+
+    const totalPenalty = stats.reduce((acc, curr) => acc + (curr.penalty?.scored || 0), 0);
+    const missedPenalty = stats.reduce((acc, curr) => acc + (curr.penalty?.missed || 0), 0);
+
+    const penaltyPercentage = totalPenalty > 0
+        ? ((missedPenalty / totalPenalty) * 100).toFixed(0)
+        : "N/A";
+
+
+
 
 
     const options = {
@@ -92,6 +110,10 @@ export default function RadarStats({ stats }) {
         radarData.labels.push("Shots");
         radarData.datasets[0].data.push(Number(shotsPercentage)); // CONVERSIONE FORZATA
     }
+    if (penaltyPercentage !== "N/A") {
+        radarData.labels.push("Penalty");
+        radarData.datasets[0].data.push(Number(penaltyPercentage)); // CONVERSIONE FORZATA
+    }
     if (dribblesPercentage !== "N/A") {
         radarData.labels.push("Dribbles");
         radarData.datasets[0].data.push(Number(dribblesPercentage)); // CONVERSIONE FORZATA
@@ -100,6 +122,11 @@ export default function RadarStats({ stats }) {
         radarData.labels.push("Duels");
         radarData.datasets[0].data.push(Number(duelsPercentage)); // CONVERSIONE FORZATA
     }
+    if (tacklesPercentage !== "N/A") {
+        radarData.labels.push("Tackles");
+        radarData.datasets[0].data.push(Number(tacklesPercentage)); // CONVERSIONE FORZATA
+    }
+
 
 
     return (
@@ -107,7 +134,7 @@ export default function RadarStats({ stats }) {
             <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
                 Season Stats
             </Typography>
-            <Grid size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', marginBottom:'-50px!important' }}>
+            <Grid size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', marginBottom: '0px!important' }}>
                 {radarData.labels.length > 0 ? (
                     <Radar data={radarData} options={options} />
                 ) : (

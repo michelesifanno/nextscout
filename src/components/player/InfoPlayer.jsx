@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Typography, Grid2 as Grid } from "@mui/material";
+import { Link } from 'react-router';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
 
@@ -35,7 +36,9 @@ export default function InfoPlayer({ player, stats }) {
                 <Grid size={{ xs: 4, md: 2 }}>
                     <Grid container sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                         <Grid size={{ xs: 6, md: 6 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '6px', md: 0 } }}>
-                            <QueryStatsOutlinedIcon className='stats-icon' />
+                            <Link to={`/report/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
+                                <QueryStatsOutlinedIcon className='stats-icon' />
+                            </Link>
                         </Grid>
                         <Grid size={{ xs: 6, md: 6 }} sx={{ p: { xs: 1, md: 1 }, mt: { xs: '6px', md: 0 } }}>
                             <FavoriteBorderOutlinedIcon className='favorite-icon' />

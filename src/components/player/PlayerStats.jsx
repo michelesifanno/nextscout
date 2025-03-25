@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Typography, Grid2 as Grid, Accordion, AccordionActions, AccordionSummary, AccordionDetails, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
@@ -14,18 +15,18 @@ export default function PlayerStats({ stats }) {
     // Lista delle statistiche da calcolare per un Portiere
     const gkData = ["goals.conceded", "goals.saves", "penalty.committed", "penalty.saved", "games.appearences", "games.minutes"];
 
-    // Lista delle statistiche da calcolare per un Portiere
+    // Lista delle statistiche da calcolare per un Difensore
     const defData = ["goals.total", "goals.assist", "tackles.total", "tackles.interceptions", "duels.total", "duels.won",
-        "fouls.drawn", "fouls.committed", "penalty.commited", "penalty.scored", "shots.total", "shots.on"
+        "fouls.drawn", "fouls.committed", "shots.total", "shots.on"
     ];
 
-    // Lista delle statistiche da calcolare per un Portiere
+    // Lista delle statistiche da calcolare per un Centrocampista
     const midData = ["goals.total", "goals.assist", "passes.total", "passes.key", "tackles.total",
         "tackles.interceptions", "duels.total", "duels.won", "dribbles.attempts", "dribbles.success", "fouls.drawn",
-        "fouls.committed", "shots.total", "shots.on"
+        "fouls.committed", "shots.total", "shots.on", "penalty.scored", "penalty.missed"
     ];
 
-    // Lista delle statistiche da calcolare per un Portiere
+    // Lista delle statistiche da calcolare per un Attaccante
     const atkData = ["goals.total", "goals.assists", "shots.total", "shots.on", "dribbles.success",
         "dribbles.attempts", "passes.total", "passes.key", "penalty.scored", "penalty.missed", "fouls.committed", "fouls.drawn"
     ];
@@ -110,8 +111,7 @@ export default function PlayerStats({ stats }) {
         if (!acc[mainKey]) acc[mainKey] = [];
         acc[mainKey].push({ subKey, value: totalAtkStats[statName] || 0 });
         return acc;
-    }, {});
-
+    }, {});    
 
     // Recuper il ruolo del calciatore
     const statistics = stats[1];

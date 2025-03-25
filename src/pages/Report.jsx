@@ -9,10 +9,16 @@ import RadarStats from '../components/player/RadarStats';
 import OtherPlayers from '../components/player/OtherPlayers';
 
 
-export default function Player() {
+export default function Report() {
+
     const { slug } = useParams();
     const playerId = parseInt(slug, 10); // Converte slug in intero
     const { player, stats, loading, error } = usePlayerStats(playerId);
+    
+    const leagues = stats.map((stat) => stat.league.id);
+
+    console.log('leagues: ', leagues);
+    
 
     if (loading) return <p>Caricamento in corso...</p>;
     if (error) return <p>Errore: {error}</p>;

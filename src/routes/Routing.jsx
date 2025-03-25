@@ -11,6 +11,8 @@ import SignPage from "../pages/SignPage";
 import Welcome from "../pages/Welcome";
 import Player from "../pages/Player";
 
+import Report from "../pages/Report";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/player/:slug",
         element: <Player />,
+      },
+      {
+        path: "/report/:slug",
+        element: <Report />,
       },
     ],
   },

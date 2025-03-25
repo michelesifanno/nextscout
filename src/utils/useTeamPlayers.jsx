@@ -36,7 +36,6 @@ export default function useTeamPlayers(id) {
                     console.log("Dati aggiornati, uso il Database 2");
                     setPlayers(dbRecords);
                     setLoading(false);
-                    console.log('Db Records:', dbRecords);
                     return;
                 }
 
