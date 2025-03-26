@@ -12,41 +12,43 @@ import { useMediaQuery } from '@mui/material';
 
 const theme = createTheme({
   palette: {
+    mode: 'dark', // <-- Imposta la modalità dark di default
     primary: {
-      main: '#fff',  // Il colore che hai fornito
+      main: '#fff',
     },
     secondary: {
-      main: '#7000c6',  // Colore complementare ispirato a Sofascore
+      main: '#7000c6',
     },
     third: {
       main: '#e1ff57',
     },
     background: {
-      default: '#edefe7',  // Colore di sfondo chiaro
-      paper: '#edefe7',  // Colore di sfondo dei componenti
+      default: '#000',  // <-- Sfondo nero
+      paper: '#121212',  // <-- Sfondo dei componenti più scuro
     },
     text: {
-      primary: '#B3B3B3',  // Colore del testo primario scuro
-      secondary: '#18002a',  // Colore del testo secondario più chiaro
+      primary: '#ffffff',  
+      secondary: '#B3B3B3',
     },
     error: {
-      main: '#d32f2f',  // Colore di errore
+      main: '#d32f2f',
     },
     warning: {
-      main: '#ffa726',  // Colore di avviso
+      main: '#ffa726',
     },
     info: {
-      main: '#29b6f6',  // Colore di informazione
+      main: '#29b6f6',
     },
     success: {
-      main: '#66bb6a',  // Colore di successo
+      main: '#66bb6a',
     },
   },
   typography: {
     fontFamily: 'Inter, sans-serif',
-    fontSize:'12px',
+    fontSize: '12px',
   },
 });
+
 
 
 function AppLayout() {

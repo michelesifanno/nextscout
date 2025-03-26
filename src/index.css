@@ -254,6 +254,7 @@ h2.title-stats {
 span.MuiAccordionSummary-content, span.MuiAccordionSummary-content.Mui-expanded {
   margin: 0px;
 }
+
 button.MuiAccordionSummary-root.Mui-expanded {
   min-height: 0px;
 }

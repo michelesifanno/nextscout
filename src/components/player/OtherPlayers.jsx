@@ -24,8 +24,6 @@ export default function OtherPlayers({ stats }) {
     ? players.filter((player) => player.position === positionName && player.id !== playerId) 
     : [];
 
-    console.log("OtherPlayers players:", players);
-
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>

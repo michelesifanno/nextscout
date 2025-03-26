@@ -14,7 +14,7 @@ function formatDateItalian(date) {
   });
 }
 
-export default function usePlayerStats(id, season) {
+export default function usePlayerOldStats(id, season) {
   const [player, setPlayer] = useState(null);
   const [stats, setStats] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ export default function usePlayerStats(id, season) {
       try {
         // Controllo prima se il player è nel database
         const { data: dbRecords, error: dbError } = await supabase
-          .from("players_stats")
+          .from("players_stats_old")
           .select("*")
           .match({ player_id: id });
 
@@ -75,7 +75,7 @@ export default function usePlayerStats(id, season) {
 
         try {
           const { error: upsertError } = await supabase
-            .from("players_stats")
+            .from("players_stats_old")
             .upsert({
               player_id: apiPlayerData.id,
               player: apiPlayerData,

@@ -12,14 +12,22 @@ import OtherPlayers from '../components/player/OtherPlayers';
 export default function Player() {
     const { slug } = useParams();
     const playerId = parseInt(slug, 10); // Converte slug in intero
-    const { player, stats, loading, error } = usePlayerStats(playerId);
 
+
+    const currentYear = new Date().getFullYear();
+    const actualSeason = currentYear - 1;
+    
+
+    const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
+    
+    
     if (loading) return <p>Caricamento in corso...</p>;
     if (error) return <p>Errore: {error}</p>;
 
-    if (!player || !stats || stats.length === 0) {
-        return <p>Dati non disponibili...</p>;  // Mostra un messaggio se i dati non sono disponibili
+    if (!player || !stats || (Array.isArray(stats) && stats.length === 0)) {
+        return <p>Dati non disponibili...</p>;
     }
+    
 
     return (
         <Container>
