@@ -57,6 +57,8 @@ export default function usePlayerSeason(id) {
 
                 const apiSeasons = response.data.response;
 
+                setSeasons (apiSeasons);
+
                 
                 const upsertData = {
                     player_id: id,

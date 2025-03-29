@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid } from "@mui/material";
+import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid2 as Grid } from "@mui/material";
 import usePlayerSeason from "../../utils/usePlayerSeason";
 import usePlayerOldStats from "../../utils/usePlayerOldStats";
 import { useParams } from "react-router-dom";
@@ -18,10 +18,11 @@ export default function CareerStats({ stats }) {
     const currentYear = new Date().getFullYear();
     const actualSeason = currentYear - 1;
 
-    const { seasons } = usePlayerSeason(playerId);
+    const { seasons, loading_season, error } = usePlayerSeason(playerId);
 
     const [season, setSeason] = useState(actualSeason);
     const [oldStats, setOldStats] = useState(stats); // Stato per le statistiche
+
     const [loading, setLoading] = useState(true); // Stato di caricamento
 
     console.log("Stats from parent:", oldStats);
@@ -33,6 +34,7 @@ export default function CareerStats({ stats }) {
     const controller = new AbortController(); // Per cancellare richieste in corso
     const cacheTimeMs = 7 * 24 * 60 * 60 * 1000; // 1 settimana
 
+    
     useEffect(() => {
 
         async function fetchPlayerOldStats() {
@@ -114,12 +116,12 @@ export default function CareerStats({ stats }) {
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Grid container sx={{ display: 'flex', alignItems: 'center' }}>
-                <Grid item xs={12} md={6}>
+                <Grid item size={{ xs: 6, md: 6 }} sx={{ display: 'flex', justifyContent: 'start' }}>
                     <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
                         Career Stats
                     </Typography>
                 </Grid>
-                <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'end' }}>
+                <Grid item size={{ xs: 6, md: 6 }} sx={{ display: 'flex', justifyContent: 'end' }}>
                     <FormControl variant="standard" sx={{ minWidth: 120, p: 0, m: 0 }}>
                         <Select
                             labelId="Select Season"
