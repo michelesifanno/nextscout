@@ -130,7 +130,7 @@ export default function PlayerStats({ stats }) {
 
     return (
         <>
-            <Accordion sx={{ minWidth: '100%!important', backgroundColor: '#0000', boxShadow: 'none', padding: '0px', minHeight: '0px' }}>
+            <Accordion sx={{ minWidth: '100%!important', backgroundColor: '#121212!important', boxShadow: 'none', padding: '0px', minHeight: '0px' }}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon sx={{ color: '#fff' }} />}
                     aria-controls="panel-content"
@@ -141,7 +141,7 @@ export default function PlayerStats({ stats }) {
                         Detail
                     </p>
                 </AccordionSummary>
-                <AccordionDetails sx={{ padding: '0px' }}>
+                <AccordionDetails sx={{ padding: '0px', backgroundColor:'#121212' }}>
                     <Table sx={{ minWidth: '100%' }} aria-label="tabella statistiche">
                         <TableBody>
                             {Object.entries(groupedStats).map(([mainKey, subStats]) => (

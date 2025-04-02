@@ -114,7 +114,7 @@ export default function CareerStats({ stats }) {
     }
 
     return (
-        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
+        <Container className="Container-Career-Stats" sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Grid container sx={{ display: 'flex', alignItems: 'center' }}>
                 <Grid item size={{ xs: 6, md: 6 }} sx={{ display: 'flex', justifyContent: 'start' }}>
                     <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>

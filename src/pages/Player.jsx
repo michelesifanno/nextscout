@@ -7,6 +7,7 @@ import usePlayerStats from "../utils/usePlayerStats";
 import PlayerDetails from '../components/player/PlayerDetails';
 import RadarStats from '../components/player/RadarStats';
 import OtherPlayers from '../components/player/OtherPlayers';
+import RatingCharts from '../components/player/RatingChart';
 
 
 export default function Player() {
@@ -16,18 +17,18 @@ export default function Player() {
 
     const currentYear = new Date().getFullYear();
     const actualSeason = currentYear - 1;
-    
+
 
     const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
-    
-    
+
+
     if (loading) return <p>Caricamento in corso...</p>;
     if (error) return <p>Errore: {error}</p>;
 
     if (!player || !stats || (Array.isArray(stats) && stats.length === 0)) {
         return <p>Dati non disponibili...</p>;
     }
-    
+
 
     return (
         <Container>
@@ -39,15 +40,16 @@ export default function Player() {
                             <Grid size={{ xs: 12, md: 12 }}>
                                 <PlayerDetails player={player} stats={stats} />
                             </Grid>
-                            <Grid size={{ xs: 12, md: 6 }}>
-                                <RadarStats stats={stats} />
-                            </Grid>
-                            <Grid size={{ xs: 12, md: 6 }}>
+                            <Grid size={{ xs: 12 }}>
                                 <CareerStats stats={stats} />
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid size={{ xs: 12, md: 4 }}>
+                        <RadarStats stats={stats} />
+                        <RatingCharts />
+                    </Grid>
+                    <Grid size={{ xs: 12 }}>
                         <OtherPlayers stats={stats} />
                     </Grid>
                 </Grid>

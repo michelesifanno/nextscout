@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid2 as Grid } from "@mui/material";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import { Link } from 'react-router';
 import { useParams } from "react-router-dom";
@@ -20,39 +20,30 @@ export default function OtherPlayers({ stats }) {
 
     const { players, loading, error } = useTeamPlayers(teamId);
 
-    const filteredPlayers = players 
-    ? players.filter((player) => player.position === positionName && player.id !== playerId) 
-    : [];
+    const filteredPlayers = players
+        ? players.filter((player) => player.position === positionName && player.id !== playerId)
+        : [];
 
     return (
-        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
-            <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
+        <>
+            <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF', mb: 2, mt: 2 }}>
                 See also
             </Typography>
-            <TableContainer>
-                <Table sx={{ minWidth: '100%' }} aria-label="tabella statistiche Carriera">
-                    <TableBody>
-                        {filteredPlayers.map((player, index) => (
-                            <TableRow key={index}>
-                                <TableCell sx={{ display: 'flex', alignItems: 'center', padding: '16px 0px' }}>
-                                    <img src={player.photo} width="40px" style={{ marginRight: '10px', borderRadius: '50%', border: '1px solid #000' }} />
-                                    <div>
-                                        <Typography variant="h2" className="title-squad">
-                                            {player.name}
-                                        </Typography>
-                                        <p className="info-title-table"> {player.position}</p>
-                                    </div>
-                                </TableCell>
-                                <TableCell sx={{ textAlign: 'right', padding: '16px 0px' }}>
-                                    <Link to={`/player/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
-                                        <ArrowOutwardIcon sx={{ color: '#fff', fontSize: '18px' }} />
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Container>
+            <Grid container spacing={2}>
+                {filteredPlayers.map((player, index) => (
+                    <Grid key={index} size={{ xs: 6, md: 2 }} sx={{ backgroundColor: '#121212', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                        <Link to={`/player/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
+                            <img src={player.photo} width="60px" style={{ borderRadius: '50%', border: '1px solid #000', marginBottom: '10px' }} />
+                            <div>
+                                <Typography variant="h2" className="title-squad">
+                                    {player.name}
+                                </Typography>
+                                <p className="info-title-table"> {player.position}</p>
+                            </div>
+                        </Link>
+                    </Grid>
+                ))}
+            </Grid>
+        </>
     )
 }
