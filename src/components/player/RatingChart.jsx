@@ -59,8 +59,13 @@ export default function RatingCharts() {
 
 
     if (loading_season || loading_oldstats) {
-        return <Typography variant="h6" color="textSecondary">Caricamento in corso...</Typography>; // Mostra il messaggio di caricamento
-    }
+        return <Typography variant="h6" color="textSecondary">Caricamento in corso...</Typography>;
+      }
+      
+      if (!seasonalAverageRatings.length) {
+        return <Typography variant="h6" color="error">Nessun dato disponibile per questo giocatore.</Typography>;
+      }
+      
 
     return (
         <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2, mt: 2 }}>
