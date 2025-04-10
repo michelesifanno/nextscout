@@ -40,7 +40,6 @@ export default function usePlayerSeason(id) {
                     return;
                 }
 
-
                 // Chiamata API se i dati non sono aggiornati
                 console.log("⚠️ Dati vecchi o assenti, chiamata API in corso 3...");
                 const url = `${import.meta.env.VITE_BASE_URL}/players/seasons?player=${id}`;

@@ -8,6 +8,7 @@ import PlayerDetails from '../components/player/PlayerDetails';
 import RadarStats from '../components/player/RadarStats';
 import OtherPlayers from '../components/player/OtherPlayers';
 import RatingCharts from '../components/player/RatingChart';
+import usePlayerSeason from '../utils/usePlayerSeason';
 
 
 export default function Player() {
@@ -18,6 +19,7 @@ export default function Player() {
     const currentYear = new Date().getFullYear();
     const actualSeason = currentYear - 1;
 
+    const { seasons, loading_season, error_seasons } = usePlayerSeason(playerId);
 
     const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
 
@@ -41,7 +43,7 @@ export default function Player() {
                                 <PlayerDetails player={player} stats={stats} />
                             </Grid>
                             <Grid size={{ xs: 12 }}>
-                                <CareerStats stats={stats} />
+                                <CareerStats seasons={seasons} />
                             </Grid>
                         </Grid>
                     </Grid>
