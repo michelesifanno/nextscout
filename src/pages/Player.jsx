@@ -19,8 +19,6 @@ export default function Player() {
     const currentYear = new Date().getFullYear();
     const actualSeason = currentYear - 1;
 
-    const { seasons, loading_season, error_seasons } = usePlayerSeason(playerId);
-
     const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
 
 
@@ -36,23 +34,31 @@ export default function Player() {
         <Container>
             <Box sx={{ mt: 2 }}>
                 <Grid container spacing={2}>
-                    <Grid size={{ xs: 12, md: 8 }}>
+                    <Grid size={{ xs: 12, md: 2 }}>
+                    </Grid>
+                    <Grid container size={{ xs: 12, md: 8 }}>
+                    <Grid size={{ xs: 12, md: 12 }}>
                         <InfoPlayer player={player} stats={stats} />
-                        <Grid container spacing={2}>
-                            <Grid size={{ xs: 12, md: 12 }}>
-                                <PlayerDetails player={player} stats={stats} />
-                            </Grid>
-                            <Grid size={{ xs: 12 }}>
-                                <CareerStats seasons={seasons} />
-                            </Grid>
+                            <PlayerDetails player={player} stats={stats} />
+                        </Grid>
+
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <RadarStats stats={stats} />
+                        </Grid>
+
+                        <Grid size={{ xs: 12, md: 6 }}>
+                            <RatingCharts />
+                        </Grid>
+
+                        <Grid size={{ xs: 12, md: 12 }}>
+                            <CareerStats />
+                        </Grid>
+
+                        <Grid size={{ xs: 12, md: 12 }}>
+                            <OtherPlayers stats={stats} />
                         </Grid>
                     </Grid>
-                    <Grid size={{ xs: 12, md: 4 }}>
-                        <RadarStats stats={stats} />
-                        <RatingCharts />
-                    </Grid>
-                    <Grid size={{ xs: 12 }}>
-                        <OtherPlayers stats={stats} />
+                    <Grid size={{ xs: 12, md: 2 }}>
                     </Grid>
                 </Grid>
             </Box>

@@ -36,7 +36,7 @@ export default function usePlayerStats(id, season) {
         const { data: dbRecords, error: dbError } = await supabase
           .from("players_stats")
           .select("*")
-          .match({ player_id: id });
+          .match({ player_id: id, season_year: season });
 
         if (dbError) throw new Error("Errore nel recupero dati da Supabase");
         const now = Date.now();
@@ -45,7 +45,7 @@ export default function usePlayerStats(id, season) {
           dbRecords?.length > 0 &&
           (now - new Date(dbRecords[0].last_update).getTime() < cacheTimeMs)
         ) {
-          console.log("Dati aggiornati, uso il Database");
+          console.log("Dati aggiornati, uso il Database MURT D MAMT");
 
           setPlayer(dbRecords[0].player);
           setStats(dbRecords[0].stats);
@@ -81,6 +81,7 @@ export default function usePlayerStats(id, season) {
               player: apiPlayerData,
               stats: apiPlayerStats,
               last_update: new Date(),
+              season_year: season,
             });
 
           if (upsertError) console.error("Errore durante l'upsert:", upsertError);

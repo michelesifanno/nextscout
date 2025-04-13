@@ -144,9 +144,6 @@ export default function RadarStats({ stats }) {
                 )}
                 {console.log("Radar Data:", JSON.stringify(radarData, null, 2))}
             </Grid>
-            <Grid size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center' }}>
-                <PlayerStats stats={stats} />
-            </Grid>
         </Container>
     );
 }

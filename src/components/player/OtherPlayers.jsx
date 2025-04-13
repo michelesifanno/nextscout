@@ -31,7 +31,7 @@ export default function OtherPlayers({ stats }) {
             </Typography>
             <Grid container spacing={2}>
                 {filteredPlayers.map((player, index) => (
-                    <Grid key={index} size={{ xs: 6, md: 2 }} sx={{ backgroundColor: '#121212', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                    <Grid key={index} size={{ xs: 6, md: 3 }} sx={{ backgroundColor: '#121212', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
                         <Link to={`/player/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
                             <img src={player.photo} width="60px" style={{ borderRadius: '50%', border: '1px solid #000', marginBottom: '10px' }} />
                             <div>
