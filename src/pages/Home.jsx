@@ -14,7 +14,7 @@ function Home() {
     const { teams, loadingTeams, errorTeams } = useTeams();
     const [selectedLeague, setSelectedLeague] = useState(null);
     const [selectedTeam, setSelectedTeam] = useState(null);
-    const { players, loadingPlayers, errorPlayers } = usePlayers(selectedTeam);
+    const { players, loadingPlayers, errorPlayers } = usePlayers(selectedTeam?.id);
     const theme = useTheme();
     const isMobileOrTablet = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -117,7 +117,7 @@ function Home() {
                                             className="team-select"
                                             spacing={2}
                                             alignItems="center"
-                                            onClick={() => setSelectedTeam(team.id)}
+                                            onClick={() => setSelectedTeam(team)}
                                             sx={{
                                                 cursor: 'pointer',
                                                 border: selectedTeam === team.id ? '2px solid #1976d2!important' : '1px solid #ccc',
@@ -169,7 +169,10 @@ function Home() {
                                         players.map((player) => (
                                             <Grid container key={player.id} className="team-select" spacing={2} alignItems="center">
                                                 <Grid item xs={12} sx={{ textAlign: 'center' }}>
-                                                <Link to={`/player/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
+                                                <Link
+                                                to={`/player/${player.id}`}
+                                                state={{id: selectedTeam.id, name: selectedTeam.name, logo: selectedTeam.logo }}
+                                                style={{ textDecoration: 'none', color: '#333' }}>
                                                     <LazyLoad height={50} offset={100}>
                                                         <img
                                                             src={player.photo}

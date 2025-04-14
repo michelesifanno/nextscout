@@ -5,7 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 
 
 
-export default function PlayerDetails({ player, stats }) {
+export default function PlayerDetails({ player, stats, team }) {
 
     function calculateAverageRating(stats) {
         const validRatings = stats
@@ -24,7 +24,6 @@ export default function PlayerDetails({ player, stats }) {
     const statistics = stats[0];
 
     // Verifica se le statistiche e la squadra esistono
-    const teamName = statistics.team.name || "N/A"; // Se non ci sono statistiche, mostra "N/A"
     const positionName = statistics.games.position || "N/A"; // Se non ci sono statistiche, mostra "N/A"
 
     return (
@@ -33,14 +32,14 @@ export default function PlayerDetails({ player, stats }) {
                 <Grid container size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                     <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 }}}>
                             <img
-                                src={statistics.team.logo}
-                                alt={teamName}
+                                src={team.logo}
+                                alt={team.name}
                                 width="50"
                                 height="50"
                                 style={{ objectFit: 'contain' }}
                             />
                         <p className="info-title">
-                            {statistics.team.name}
+                            {team.name}
                         </p>
                     </Grid>
                     <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Typography, Grid2 as Grid, Box, Container, Rating } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import InfoPlayer from "../components/player/InfoPlayer";
 import CareerStats from '../components/player/CareerStats';
 import usePlayerStats from "../utils/usePlayerStats";
@@ -13,6 +13,12 @@ import usePlayerSeason from '../utils/usePlayerSeason';
 
 export default function Player() {
     const { slug } = useParams();
+    const location = useLocation();
+
+    const { id, name, logo } = location.state || {};
+    
+    const team = { id, name, logo };
+
     const playerId = parseInt(slug, 10); // Converte slug in intero
 
 
@@ -20,7 +26,7 @@ export default function Player() {
     const actualSeason = currentYear - 1;
 
     const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
-
+    
 
     if (loading) return <p>Caricamento in corso...</p>;
     if (error) return <p>Errore: {error}</p>;
@@ -39,7 +45,7 @@ export default function Player() {
                     <Grid container size={{ xs: 12, md: 8 }}>
                         <Grid size={{ xs: 12, md: 12 }}>
                             <InfoPlayer player={player} stats={stats} />
-                            <PlayerDetails player={player} stats={stats} />
+                            <PlayerDetails player={player} stats={stats} team={team} />
                         </Grid>
 
                         <Grid size={{ xs: 12, md: 6 }}>

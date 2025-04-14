@@ -5,7 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
 
 
-export default function InfoPlayer({ player, stats }) {
+export default function InfoPlayer({ player, stats, team }) {
 
     // Accedi alla prima statistica
     const statistics = stats[0];
