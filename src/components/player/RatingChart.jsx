@@ -60,15 +60,15 @@ export default function RatingCharts() {
 
     if (loading_season || loading_oldstats) {
         return <Typography variant="h6" color="textSecondary">Caricamento in corso...</Typography>;
-      }
-      
-      if (!seasonalAverageRatings.length) {
+    }
+
+    if (!seasonalAverageRatings.length) {
         return <Typography variant="h6" color="error">Nessun dato disponibile per questo giocatore.</Typography>;
-      }
-      
+    }
+
 
     return (
-        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2, mt: 2 }}>
+        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Grid container sx={{ display: 'flex', alignItems: 'center' }}>
                 <Grid item size={{ xs: 12 }} sx={{ display: 'flex', justifyContent: 'start' }}>
                     <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
@@ -79,7 +79,7 @@ export default function RatingCharts() {
                     <LineChart
                         xAxis={[{ data: xAxisData }]} // Usa xAxisData per l'asse X
                         series={[{ data: seriesData }]} // Usa seriesData per l'asse Y
-                        height={300}
+                        height={349}
                     />
                 </Grid>
             </Grid>

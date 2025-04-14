@@ -37,8 +37,8 @@ export default function Player() {
                     <Grid size={{ xs: 12, md: 2 }}>
                     </Grid>
                     <Grid container size={{ xs: 12, md: 8 }}>
-                    <Grid size={{ xs: 12, md: 12 }}>
-                        <InfoPlayer player={player} stats={stats} />
+                        <Grid size={{ xs: 12, md: 12 }}>
+                            <InfoPlayer player={player} stats={stats} />
                             <PlayerDetails player={player} stats={stats} />
                         </Grid>
 
