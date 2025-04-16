@@ -1,16 +1,9 @@
-import { useState, useEffect } from "react";
-import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid2 as Grid, Box } from "@mui/material";
+import { Typography, Container, Grid2 as Grid, Box } from "@mui/material";
 import usePlayerSeason from "../../utils/usePlayerSeason";
 import usePlayerOldStats from "../../utils/usePlayerOldStats";
 import { useParams } from "react-router-dom";
 import { LineChart } from "@mui/x-charts";
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import supabase from "../../supabase/client";
-import axios from "axios";
 
 export default function RatingCharts() {
 

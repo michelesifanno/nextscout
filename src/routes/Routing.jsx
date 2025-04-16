@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from '../pages/Root';
 import Home from "../pages/Home";
+import Home2 from "../pages/Home2";
 import ProtectedRoute from "../components/general/ProtectedRoute";
 import ScrollToTop from "../components/ScrollToTop";
 

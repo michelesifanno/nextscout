@@ -10,7 +10,7 @@ import {
     Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
-import PlayerStats from './PlayerStats';
+
 
 ChartJS.register(
     RadialLinearScale,
@@ -130,7 +130,7 @@ export default function RadarStats({ stats }) {
 
 
     return (
-        <Container sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
+        <Container sx={{ display: 'block', backgroundColor: '#121212', pt: { xs: 3, md: 4 }, pr: { xs: 3, md: 4 }, pb: { xs: 0, md: 0 }, pl: { xs: 3, md: 4 }, borderRadius: 2 }}>
             <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
                 Season Stats
             </Typography>

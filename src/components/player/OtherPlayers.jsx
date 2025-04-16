@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import useTeamPlayers from '../../utils/useTeamPlayers';
 
 
-export default function OtherPlayers({ stats }) {
+export default function OtherPlayers({ stats, team }) {
 
     const { slug } = useParams();
     const playerId = parseInt(slug, 10); // Converte slug in intero
@@ -15,7 +15,7 @@ export default function OtherPlayers({ stats }) {
     const statistics = stats[0];
 
     // Verifica se le statistiche e la squadra esistono
-    const teamId = statistics.team.id || "N/A"; // Se non ci sono statistiche, mostra "N/A"
+    const teamId = team.id || "N/A"; // Se non ci sono statistiche, mostra "N/A"
     const positionName = statistics.games.position || "N/A"; // Se non ci sono statistiche, mostra "N/A"
 
     const { players, loading, error } = useTeamPlayers(teamId);
@@ -32,7 +32,11 @@ export default function OtherPlayers({ stats }) {
             <Grid container spacing={2}>
                 {filteredPlayers.map((player, index) => (
                     <Grid key={index} size={{ xs: 6, md: 3 }} sx={{ backgroundColor: '#121212', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
-                        <Link to={`/player/${player.id}`} style={{ textDecoration: 'none', color: '#333' }}>
+                        <Link
+                            to={`/player/${player.id}`}
+                            style={{ textDecoration: 'none', color: '#333' }}
+                            state={{ id: team.id, name: team.name, logo: team.logo }}
+                        >
                             <img src={player.photo} width="60px" style={{ borderRadius: '50%', border: '1px solid #000', marginBottom: '10px' }} />
                             <div>
                                 <Typography variant="h2" className="title-squad">

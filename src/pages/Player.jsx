@@ -16,7 +16,7 @@ export default function Player() {
     const location = useLocation();
 
     const { id, name, logo } = location.state || {};
-    
+
     const team = { id, name, logo };
 
     const playerId = parseInt(slug, 10); // Converte slug in intero
@@ -26,7 +26,7 @@ export default function Player() {
     const actualSeason = currentYear - 1;
 
     const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
-    
+
 
     if (loading) return <p>Caricamento in corso...</p>;
     if (error) return <p>Errore: {error}</p>;
@@ -40,31 +40,33 @@ export default function Player() {
         <Container>
             <Box sx={{ mt: 2 }}>
                 <Grid container spacing={2}>
-                    <Grid size={{ xs: 12, md: 2 }}>
-                    </Grid>
                     <Grid container size={{ xs: 12, md: 8 }}>
                         <Grid size={{ xs: 12, md: 12 }}>
                             <InfoPlayer player={player} stats={stats} />
                             <PlayerDetails player={player} stats={stats} team={team} />
                         </Grid>
 
-                        <Grid size={{ xs: 12, md: 6 }}>
+                        {/* <Grid size={{ xs: 12, md: 4 }}>
                             <RadarStats stats={stats} />
                         </Grid>
 
-                        <Grid size={{ xs: 12, md: 6 }}>
+                        <Grid size={{ xs: 12, md: 4 }}>
                             <RatingCharts />
-                        </Grid>
+                        </Grid> */}
 
                         <Grid size={{ xs: 12, md: 12 }}>
                             <CareerStats />
                         </Grid>
 
                         <Grid size={{ xs: 12, md: 12 }}>
-                            <OtherPlayers stats={stats} />
+                            <OtherPlayers stats={stats} team={team} />
                         </Grid>
                     </Grid>
-                    <Grid size={{ xs: 12, md: 2 }}>
+                    <Grid container size={{ xs: 12, md: 4 }}>
+                        <Grid size={{ xs: 12 }}>
+                            <RadarStats stats={stats} />
+                        </Grid>
+
                     </Grid>
                 </Grid>
             </Box>
