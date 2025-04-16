@@ -22,7 +22,7 @@ export default function CareerStats() {
 
     const [season, setSeason] = useState(actualSeason);
 
-    const { player, stats, loading, error } = usePlayerStats(playerId, actualSeason);
+    const { player, stats, loading, error } = usePlayerStats(playerId, season);
 
     const handleChange = (event) => {
         setSeason(event.target.value);
