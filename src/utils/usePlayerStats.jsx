@@ -72,8 +72,18 @@ export default function usePlayerStats(id, season) {
         setPlayer(apiPlayerData);
         setStats(apiPlayerStats);
 
-
         try {
+          
+        // Eliminare il record esistente prima di fare l'upsert
+        const { error: deleteError } = await supabase
+        .from("players_stats")
+        .delete()
+        .match({ player_id: apiPlayerData.id, season_year: season });
+
+      if (deleteError) {
+        console.error("Errore durante la cancellazione:", deleteError);
+      }
+
           const { error: upsertError } = await supabase
             .from("players_stats")
             .upsert({

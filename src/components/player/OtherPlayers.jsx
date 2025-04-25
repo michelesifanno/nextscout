@@ -1,6 +1,4 @@
-import * as React from 'react';
-import { Typography, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Grid2 as Grid } from "@mui/material";
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { Typography, Grid2 as Grid } from "@mui/material";
 import { Link } from 'react-router';
 import { useParams } from "react-router-dom";
 import useTeamPlayers from '../../utils/useTeamPlayers';
@@ -31,7 +29,7 @@ export default function OtherPlayers({ stats, team }) {
             </Typography>
             <Grid container spacing={2}>
                 {filteredPlayers.map((player, index) => (
-                    <Grid key={index} size={{ xs: 6, md: 3 }} sx={{ backgroundColor: '#121212', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
+                    <Grid key={index} size={{ xs: 6, md: 2 }} sx={{ backgroundColor: '#121212', p: { xs: 2, md: 3 }, borderRadius: 2 }}>
                         <Link
                             to={`/player/${player.id}`}
                             style={{ textDecoration: 'none', color: '#333' }}

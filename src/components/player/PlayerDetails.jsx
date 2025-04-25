@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { Typography, Grid2 as Grid, Box, Container } from "@mui/material";
-import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { Typography, Grid2 as Grid } from "@mui/material";
 
 
 
@@ -23,21 +21,18 @@ export default function PlayerDetails({ player, stats, team }) {
     // Accedi alla prima statistica
     const statistics = stats[0];
 
-    // Verifica se le statistiche e la squadra esistono
-    const positionName = statistics.games.position || "N/A"; // Se non ci sono statistiche, mostra "N/A"
-
     return (
         <>
             <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
                 <Grid container size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 }}}>
-                            <img
-                                src={team.logo}
-                                alt={team.name}
-                                width="50"
-                                height="50"
-                                style={{ objectFit: 'contain' }}
-                            />
+                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
+                        <img
+                            src={team.logo}
+                            alt={team.name}
+                            width="50"
+                            height="50"
+                            style={{ objectFit: 'contain' }}
+                        />
                         <p className="info-title">
                             {team.name}
                         </p>

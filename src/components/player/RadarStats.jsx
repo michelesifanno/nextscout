@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Typography, Container, Grid2 as Grid } from "@mui/material";
 import {
     Chart as ChartJS,

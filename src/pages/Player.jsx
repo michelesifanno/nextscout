@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Typography, Grid2 as Grid, Box, Container, Rating } from "@mui/material";
+import { Grid2 as Grid, Box, Container } from "@mui/material";
 import { useParams, useLocation } from "react-router-dom";
 import InfoPlayer from "../components/player/InfoPlayer";
 import CareerStats from '../components/player/CareerStats';
@@ -7,8 +6,7 @@ import usePlayerStats from "../utils/usePlayerStats";
 import PlayerDetails from '../components/player/PlayerDetails';
 import RadarStats from '../components/player/RadarStats';
 import OtherPlayers from '../components/player/OtherPlayers';
-import RatingCharts from '../components/player/RatingChart';
-import usePlayerSeason from '../utils/usePlayerSeason';
+import PlayerTransfers from '../components/player/PlayerTransfers';
 
 
 export default function Player() {
@@ -44,29 +42,20 @@ export default function Player() {
                         <Grid size={{ xs: 12, md: 12 }}>
                             <InfoPlayer player={player} stats={stats} />
                             <PlayerDetails player={player} stats={stats} team={team} />
-                        </Grid>
-
-                        {/* <Grid size={{ xs: 12, md: 4 }}>
-                            <RadarStats stats={stats} />
-                        </Grid>
-
-                        <Grid size={{ xs: 12, md: 4 }}>
-                            <RatingCharts />
-                        </Grid> */}
-
-                        <Grid size={{ xs: 12, md: 12 }}>
                             <CareerStats />
-                        </Grid>
-
-                        <Grid size={{ xs: 12, md: 12 }}>
-                            <OtherPlayers stats={stats} team={team} />
                         </Grid>
                     </Grid>
                     <Grid container size={{ xs: 12, md: 4 }}>
                         <Grid size={{ xs: 12 }}>
                             <RadarStats stats={stats} />
+                            <PlayerTransfers />
                         </Grid>
+                    </Grid>
+                </Grid>
+                <Grid container size={{ xs: 12, md: 8 }}>
 
+                    <Grid size={{ xs: 12, md: 12 }}>
+                        <OtherPlayers stats={stats} team={team} />
                     </Grid>
                 </Grid>
             </Box>
