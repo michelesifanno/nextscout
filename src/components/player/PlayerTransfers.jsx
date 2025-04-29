@@ -12,7 +12,7 @@ export default function PlayerTransfers() {
 
 
 
-    const rows = ["Team", "Type", "Date"];
+    const rows = ["Team", "Type"];
 
 
     const groupedTransfers = transfers?.reduce((acc, transfer) => {
@@ -58,7 +58,7 @@ export default function PlayerTransfers() {
                     <TableHead>
                         <TableRow>
                             {rows.map((row, index) => (
-                                <TableCell key={index} sx={{ padding: '16px 0px 16px 10px' }} className={index >= rows.length - 2 ? "align-right" : ""}>
+                                <TableCell key={index} sx={{ padding: '16px 0px 16px 10px' }} className={index >= rows.length - 1 ? "align-right" : ""}>
                                     <p className="info-title-table">{row}</p>
                                 </TableCell>
                             ))}
@@ -67,39 +67,27 @@ export default function PlayerTransfers() {
                     <TableBody>
                         {transfers?.map((transfer, index) => (
                             <TableRow key={index}>
-                                {/* Colonna "Team" */}
+                                {/* Colonna "Logo team" */}
                                 <TableCell sx={{ display: 'flex', alignItems: 'center', padding: '16px 0px 16px 10px' }}>
-                                    {/* Squadra in uscita */}
                                     <div style={{ display: 'flex', alignItems: 'center', marginRight: '10px' }}>
-                                        <img src={transfer.teams.out.logo} width="30px" style={{ marginRight: '5px' }} />
-                                        <Typography variant="h6">{transfer.teams.out.name}</Typography>
-                                    </div>
-
-                                    {/* Freccia tra le squadre */}
-                                    <ArrowForward sx={{ margin: '0px', color: '#AE7AFF', fontSize: '24px' }} />
-
-                                    {/* Squadra in entrata */}
-                                    <div style={{ display: 'flex', alignItems: 'center', marginLeft: '10px' }}>
-                                        <img src={transfer.teams.in.logo} width="30px" style={{ marginRight: '5px' }} />
-                                        <Typography variant="h6">{transfer.teams.in.name}</Typography>
+                                        <img src={transfer.teams.in.logo} width="40px" style={{ marginRight: '5px' }} />
+                                        <div style={{ display: 'block', alignItems: 'center', marginRight: '10px' }}>
+                                            <Typography variant="h5">{transfer.teams.in.name}</Typography>
+                                            <p className="info-title">{transfer.date.slice(0, 4)}</p>
+                                        </div>
                                     </div>
                                 </TableCell>
 
-
                                 {/* Colonna "Type" */}
-                                <TableCell sx={{ textAlign: 'right', padding: '16px 0px 16px 10px' }}>
+                                < TableCell sx={{ textAlign: 'right', padding: '16px 0px 16px 10px' }}>
                                     <Typography variant="h2" className="title-squad">{transfer.type}</Typography>
                                 </TableCell>
 
-                                {/* Colonna "Date" */}
-                                <TableCell sx={{ textAlign: 'right', padding: '16px 0px 16px 10px' }}>
-                                    <Typography variant="h5">{transfer.date.slice(0, 4)}</Typography>
-                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer>
-        </Container>
+            </TableContainer >
+        </Container >
     );
 }
