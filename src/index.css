@@ -274,3 +274,12 @@ h2.title-stats {
   border: 0px !important;
   margin: 0px !important;
 }
+
+.MuiAccordionSummary-content {
+  display: flex;
+  align-items: center;
+}
+
+.MuiAccordionSummary-root.Mui-expanded {
+  min-height: auto;
+}

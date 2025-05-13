@@ -7,6 +7,7 @@ import PlayerDetails from '../components/player/PlayerDetails';
 import RadarStats from '../components/player/RadarStats';
 import OtherPlayers from '../components/player/OtherPlayers';
 import PlayerTransfers from '../components/player/PlayerTransfers';
+import PlayerFixtures from "../components/player/PlayerFixtures";
 
 
 export default function Player() {
@@ -49,6 +50,7 @@ export default function Player() {
                         <Grid size={{ xs: 12 }}>
                             <RadarStats stats={stats} />
                             <PlayerTransfers />
+                            <PlayerFixtures team={team} />
                         </Grid>
                     </Grid>
                 </Grid>

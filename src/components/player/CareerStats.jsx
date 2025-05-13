@@ -104,7 +104,7 @@ export default function CareerStats() {
             </Grid>
 
             {Object.entries(groupedData).map(([teamName, teamData], index) => (
-                <Accordion key={index}>
+                <Accordion key={index} defaultExpanded>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`team-${index}-header`}>
                         <img src={teamData.logo} width="40" style={{ marginRight: 10 }} />
                         <Typography variant="h2" className="title-squad">{teamName}</Typography>
