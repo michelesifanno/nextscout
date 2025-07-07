@@ -131,7 +131,15 @@ h2.title-player {
 h2.title-squad {
   font-size: 16px!important;
   line-height: 16px!important;
-  font-weight:800!important;
+  font-weight:700!important;
+  margin: 0px!important;
+  color:#fff;
+}
+
+h2.competition-squad {
+  font-size: 14px!important;
+  line-height: 14px!important;
+  font-weight:700!important;
   margin: 0px!important;
   color:#fff;
 }
@@ -175,27 +183,26 @@ h6.role-player {
 }
 
 h4.info-value {
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 28px;
-  letter-spacing: -0.5px;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 32px;
+  letter-spacing: 0px;
   color: #FFFFFF;
 }
 
 h4.info-value-stats {
-  font-size: 14px;
-  font-weight: 800;
-  line-height: 24px;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
   letter-spacing: -0.5px;
   color: #FFFFFF;
 }
 
 p.info-title {
-  font-size: 10px;
-  font-weight: 600;
-  text-transform: uppercase;
-  line-height: 20px;
-  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
   color: #B3B3B3;
   margin:0px!important;
 }
@@ -282,4 +289,9 @@ h2.title-stats {
 
 .MuiAccordionSummary-root.Mui-expanded {
   min-height: auto;
+}
+
+.MuiButtonBase-root, .MuiAccordionSummary-root
+ {
+    background-color: #000 !important;
 }

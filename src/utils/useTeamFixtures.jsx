@@ -79,7 +79,7 @@ export default function useTeamFixtures(id) {
             } catch (err) {
                 if (axios.isCancel(err)) return;
                 console.error("Errore durante il fetch:", err);
-                setError("Impossibile caricare i dati");
+                setError("Al momento non ci sono partite in programma.");
             } finally {
                 setLoading(false);
             }

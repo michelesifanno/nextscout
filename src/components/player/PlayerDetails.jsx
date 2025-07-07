@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Typography, Grid2 as Grid } from "@mui/material";
 
 
@@ -17,14 +16,46 @@ export default function PlayerDetails({ player, stats, team }) {
 
     const averageRating = calculateAverageRating(stats);
 
+    function formatValue(value, key) {
+        if (value === null || value === undefined) return "-";
 
-    // Accedi alla prima statistica
-    const statistics = stats[0];
+        if (typeof value === "object") {
+            if (key === "birth" && value.date && value.place && value.country) {
+                return `${value.date} (${value.place}, ${value.country})`;
+            }
+            return JSON.stringify(value);
+        }
+
+        if (typeof value === "boolean") {
+            return value ? "Yes" : "No";
+        }
+
+        if (typeof value === "number") {
+            const roundedUp = Math.ceil(value * 100) / 100;
+            return Number.isInteger(roundedUp) ? roundedUp.toString() : roundedUp.toFixed(2);
+        }
+
+        return value.toString();
+    }
+
+    const playerInfo = {
+        "Nationality": player.nationality,
+        "Age": player.age,
+        "Height": player.height,
+        "Weight": player.weight,
+        "Injured": player.injured,
+    }
+
+    console.log("Player:", player);
+    console.log("Player info", playerInfo);
+
+
+
 
     return (
         <>
-            <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2 }}>
-                <Grid container size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+            <Grid container spacing={2} sx={{ display: 'flex', alignItems: 'center', mt: 4, mb: 2 }}>
+                <Grid container spacing={2} size={{ xs: 12 }} sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                     <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
                         <img
                             src={team.logo}
@@ -37,46 +68,18 @@ export default function PlayerDetails({ player, stats, team }) {
                             {team.name}
                         </p>
                     </Grid>
-                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
-                        <Typography variant="h4" className="info-value">
-                            {player.nationality ? player.nationality : "N/A"}
-                        </Typography>
-                        <p className="info-title">
-                            Nationality
-                        </p>
-                    </Grid>
-                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
-                        <Typography variant="h4" className="info-value">
-                            {player.age ? player.age : "N/A"}
-                        </Typography>
-                        <p className="info-title">
-                            Age
-                        </p>
-                    </Grid>
-                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
-                        <Typography variant="h4" className="info-value">
-                            {player.weight ? player.weight : "N/A"}
-                        </Typography>
-                        <p className="info-title">
-                            Weight
-                        </p>
-                    </Grid>
-                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
-                        <Typography variant="h4" className="info-value">
-                            {player.height ? player.height : "N/A"}
-                        </Typography>
-                        <p className="info-title">
-                            Height
-                        </p>
-                    </Grid>
-                    <Grid size={{ xs: 4, md: 2 }} sx={{ p: { xs: 2, md: 1 }, mt: { xs: '-16px', md: 0 } }}>
-                        <Typography variant="h4" className="info-value">
-                            <span style={{ color: '#D0FF00' }}>{averageRating ? averageRating : "N/A"}</span>
-                        </Typography>
-                        <p className="info-title">
-                            <span style={{ color: '#D0FF00' }}>Rating</span>
-                        </p>
-                    </Grid>
+                    {Object.entries(playerInfo).map(([key, value]) => (
+                        <Grid key={key} size={{ xs: 6, md: 2 }} sx={{ p: { xs: 2, md: 1 }, backgroundColor: '#121212' }}>
+                            <Typography variant="h4" className="info-value" sx={{ pt: 1, pb: 0.5 }}>
+                                {formatValue(value)}
+                            </Typography>
+                            <p className="info-title" style={{ paddingBottom: "10px" }}>
+                                {key}
+                            </p>
+                        </Grid>
+                    ))}
+
+
                 </Grid>
 
             </Grid>

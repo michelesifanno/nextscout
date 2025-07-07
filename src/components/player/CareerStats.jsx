@@ -79,14 +79,9 @@ export default function CareerStats() {
     }
 
     return (
-        <Container className="Container-Career-Stats" sx={{ display: 'block', backgroundColor: '#121212', p: { xs: 3, md: 4 }, borderRadius: 2, mt: 2 }}>
+        <>
             <Grid container sx={{ display: 'flex', alignItems: 'center' }}>
-                <Grid item size={{ xs: 6, md: 6 }} sx={{ display: 'flex', justifyContent: 'start' }}>
-                    <Typography variant="h2" className='title-stats' sx={{ color: '#AE7AFF' }}>
-                        Career Stats
-                    </Typography>
-                </Grid>
-                <Grid item size={{ xs: 6, md: 6 }} sx={{ display: 'flex', justifyContent: 'end' }}>
+                <Grid item size={{ xs: 12 }} sx={{ display: 'flex', justifyContent: 'end' }}>
                     <FormControl variant="standard" sx={{ minWidth: 120, p: 0, m: 0 }}>
                         <Select
                             labelId="Select Season"
@@ -106,14 +101,14 @@ export default function CareerStats() {
             {Object.entries(groupedData).map(([teamName, teamData], index) => (
                 <Accordion key={index} defaultExpanded>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`team-${index}-header`}>
-                        <img src={teamData.logo} width="40" style={{ marginRight: 10 }} />
+                        <img src={teamData.logo} width="25" style={{ marginRight: 10 }} />
                         <Typography variant="h2" className="title-squad">{teamName}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                         {Object.entries(teamData.leagues).map(([leagueName, stats], lIndex) => (
                             <Accordion key={lIndex} sx={{ backgroundColor: "#2a2a2a", color: "#fff", mb: 1 }}>
                                 <AccordionSummary expandIcon={<ExpandMoreIcon />} id={`league-${lIndex}-header`}>
-                                    <Typography variant="subtitle1">{leagueName}</Typography>
+                                    <Typography variant="h4" className="competition-squad">{leagueName}</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     {renderStatTable("General", stats, [
@@ -156,6 +151,6 @@ export default function CareerStats() {
                     </AccordionDetails>
                 </Accordion>
             ))}
-        </Container>
+        </>
     );
 }
